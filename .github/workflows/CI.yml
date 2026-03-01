@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: ["main"]
   push:
-    branches: ["feature/*"]  # Corre en pushes a tu rama para depurar
+    branches: ["feature/*"]
 
 jobs:
   lint:
@@ -41,7 +41,7 @@ jobs:
 
       - name: Run tests
         env:
-          PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/src  # Raíz + src/ para resolver 'from src.app import ...'
+          PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/src
         run: pytest --maxfail=1 --disable-warnings -q
 
   security:
