@@ -41,7 +41,7 @@ jobs:
 
       - name: Run tests
         run: |
-          export PYTHONPATH=.:./src
+          export PYTHONPATH=$(pwd):$(pwd)/src
           python -m pytest --maxfail=1 --disable-warnings -q tests/test_app.py
 
   security:
